@@ -4,7 +4,7 @@ namespace KC {
 
     CByte::CByte(unsigned char val) : value(val) {}
 
-    void CByte::set(unsigned char val) {
+    void CByte::set(const unsigned char val) {
         value = val;
     }
 

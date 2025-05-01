@@ -8,21 +8,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out/bin)
 
-# include 디렉토리 등록
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/app/include)
-
-# 공유 라이브러리 생성
-add_library(KcOpen SHARED
-        app/source/CByte.cpp
-)
-
-# 테스트 실행 파일
+# 하위 모듈 추가
+add_subdirectory(app/utils)
 add_subdirectory(app/test_main)
-
-add_custom_command(TARGET KcOpen POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/out
-        COMMAND ${CMAKE_COMMAND} -E copy
-        $<TARGET_FILE:KcOpen>
-        ${CMAKE_SOURCE_DIR}/out/lib/libKcOpen.so
-        COMMENT "Copying libKcOpen.so to project out/ folder"
-)
