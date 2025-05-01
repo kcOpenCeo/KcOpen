@@ -1,5 +1,3 @@
-# app/test_main/CMakeLists.txt
-
 add_executable(KcOpenTest main.cpp)
 
 target_link_libraries(KcOpenTest KcOpen)

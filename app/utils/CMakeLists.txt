@@ -1,5 +1,3 @@
-# app/utils/CMakeLists.txt
-
 add_library(KcOpen SHARED
         source/CByte.cpp
 )
